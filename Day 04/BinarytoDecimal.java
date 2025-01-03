@@ -6,10 +6,10 @@ public class BinarytoDecimal {
         int binaryNum=sc.nextInt();
 
         int pow=0;
-        double decimalNum=0;
+        int decimalNum=0;
 
         while(binaryNum > 0){
-            decimalNum = decimalNum + ((binaryNum % 10) * Math.pow(2, pow));
+            decimalNum = decimalNum + ((binaryNum % 10) * (int)Math.pow(2, pow));
             binaryNum=binaryNum/10;
             pow++;
         }
