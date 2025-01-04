@@ -11,7 +11,7 @@ public class DecimaltoBinary {
             binaryNum=binaryNum+(decimalNum % 2)* (int) Math.pow(10,pow);
             decimalNum=decimalNum/2;
             pow++;
-        }    
+        }  
         System.out.println(binaryNum);
     }
 }
