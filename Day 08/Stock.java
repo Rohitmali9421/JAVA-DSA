@@ -1,4 +1,3 @@
-
 public class Stock {
     public static void MaxProfit(int[] arr) {
         int BuyPrice=Integer.MAX_VALUE;
@@ -11,7 +10,6 @@ public class Stock {
             }
         }
         System.out.println(MaxProfit);
-
     }
     public static void main(String[] args) {
         int arr[]={7,1,5,3,6,5};
