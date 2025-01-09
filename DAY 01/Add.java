@@ -1,4 +1,3 @@
-// Sum of A and B
 public class Add {
     public static void main(String[] args) {
         int a=23;
