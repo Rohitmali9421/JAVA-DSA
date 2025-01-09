@@ -1,5 +1,5 @@
-public class selection {
-    public static void SelectionSort(int[] arr) {
+public class Insertion {
+    public static void InsertionSort(int[] arr) {
         for (int i = 1; i < arr.length ; i++) {
             int curr = arr[i];
             int prev = i-1;
@@ -13,7 +13,7 @@ public class selection {
 
     public static void main(String[] args) {
         int arr[] = { 4, 5, 3, 2, 1 };
-        SelectionSort(arr);
+        InsertionSort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
