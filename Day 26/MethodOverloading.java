@@ -10,5 +10,6 @@ public class MethodOverloading {
     public static void main(String[] args) {
         sum(1,2);
         sum(1.1,2.1);
+        sum(5,2);
     }
 }
