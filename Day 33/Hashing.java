@@ -6,5 +6,6 @@ public class Hashing {
         sm.put("B", 23);
         sm.put("C", 24);
         System.out.println(sm);
+        System.out.println(sm.get("A"));
     }
 }
