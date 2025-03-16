@@ -11,6 +11,7 @@ public class NextGreater {
                 s.pop();
             }
             if(s.isEmpty()){
+                
                 nexgre[i]=-1;
             }else{
                 nexgre[i]=arr[s.peek()];
