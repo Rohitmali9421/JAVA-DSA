@@ -16,6 +16,7 @@ public class NextGreater {
             }else{
                 nexgre[i]=arr[s.peek()];
             }
+            
             s.push(i);
             
         }
