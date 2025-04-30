@@ -78,6 +78,16 @@ public class LevelOrderTraversal {
         int rightnodes = height(root.right);
         return Math.max(leftnodes, rightnodes)+1;
     }
+    public static int diameter(Node root) {
+        if(root==null){
+            return 0;
+        }
+        int diam1 = diameter(root.left);
+        int diam2 = diameter(root.right);
+        int diam3 = height(root.left)+height(root.right)+1;
+
+        return Math.max(diam3 , Math.max(diam2, diam1));
+    }
 
     public static void main(String[] args) {
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
@@ -86,6 +96,6 @@ public class LevelOrderTraversal {
         System.out.println(root.data);
         Levelorder(root);
         
-        System.out.println(height(root));
+        System.out.println(diameter(root));
     }
 }
