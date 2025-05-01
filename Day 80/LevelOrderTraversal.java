@@ -55,47 +55,80 @@ public class LevelOrderTraversal {
     }
 
     public static int countNode(Node root) {
-        if(root==null){
+        if (root == null) {
             return 0;
         }
         int leftnodes = countNode(root.left);
         int rightnodes = countNode(root.right);
         return leftnodes + rightnodes + 1;
     }
+
     public static int sumNode(Node root) {
-        if(root==null){
+        if (root == null) {
             return 0;
         }
         int leftnodes = sumNode(root.left);
         int rightnodes = sumNode(root.right);
         return leftnodes + rightnodes + root.data;
     }
+
     public static int height(Node root) {
-        if(root==null){
+        if (root == null) {
             return 0;
         }
         int leftnodes = height(root.left);
         int rightnodes = height(root.right);
-        return Math.max(leftnodes, rightnodes)+1;
+        return Math.max(leftnodes, rightnodes) + 1;
     }
+
     public static int diameter(Node root) {
-        if(root==null){
+        if (root == null) {
             return 0;
         }
         int diam1 = diameter(root.left);
         int diam2 = diameter(root.right);
-        int diam3 = height(root.left)+height(root.right)+1;
+        int diam3 = height(root.left) + height(root.right) + 1;
 
-        return Math.max(diam3 , Math.max(diam2, diam1));
+        return Math.max(diam3, Math.max(diam2, diam1));
+    }
+
+    static class TreeInfo {
+        int ht;
+        int diam;
+
+        TreeInfo(int ht, int diam) {
+            this.ht = ht;
+            this.diam = diam;
+        }
+    }
+
+    public static TreeInfo diameter2(Node root) {
+        if (root == null) {
+            return new TreeInfo(0, 0);
+        }
+        TreeInfo left = diameter2(root.left);
+        TreeInfo right = diameter2(root.right);
+
+        int myheight = Math.max(right.ht, left.ht) + 1;
+
+        int diam1 = left.diam;
+        int diam2 = right.diam;
+        int diam3 = left.ht + right.ht + 1;
+
+        int mydiam = Math.max(diam2, Math.max(diam1, diam3));
+
+        TreeInfo newInfo = new TreeInfo(myheight, mydiam);
+
+        return newInfo;
     }
 
     public static void main(String[] args) {
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
         BinaryTree tree = new BinaryTree();
         Node root = tree.BuildTree(nodes);
-        System.out.println(root.data);
-        Levelorder(root);
-        
-        System.out.println(diameter(root));
+        // System.out.println(root.data);
+        // Levelorder(root);
+
+        System.out.println(diameter2(root).diam);
     }
 }
